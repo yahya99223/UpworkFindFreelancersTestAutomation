@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Upwork", "Upwork\Upwork.csproj", "{4AE06AE7-0F08-4391-A37B-831DF83178E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pages", "Pages\Pages.csproj", "{52382A94-11FA-44BA-977F-A12E9F024715}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AE06AE7-0F08-4391-A37B-831DF83178E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE06AE7-0F08-4391-A37B-831DF83178E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE06AE7-0F08-4391-A37B-831DF83178E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE06AE7-0F08-4391-A37B-831DF83178E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52382A94-11FA-44BA-977F-A12E9F024715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52382A94-11FA-44BA-977F-A12E9F024715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52382A94-11FA-44BA-977F-A12E9F024715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52382A94-11FA-44BA-977F-A12E9F024715}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE1906FE-95D7-455C-BABF-2538E8FE9B64}
+	EndGlobalSection
+EndGlobal
