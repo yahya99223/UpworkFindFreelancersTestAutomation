@@ -15,12 +15,12 @@ namespace Pages
             if (type == BroswerType.Chrome)
             {
                 if (driver == null)
-                    driver = new ChromeDriver("D:\\");
+                    driver = new ChromeDriver("Lib");
             }
             else
             {
                 if (driver == null)
-                    driver = new FirefoxDriver("D:\\");
+                    driver = new FirefoxDriver("Lib");
             }
             //clearing all cookies
             driver.Manage().Cookies.DeleteAllCookies();
