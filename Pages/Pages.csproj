@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Driver.cs" />
-    <Compile Include="Freelancer.cs" />
     <Compile Include="FreelancerPage.cs" />
     <Compile Include="FreelancerOverview.cs" />
     <Compile Include="SearchResultsPage.cs" />
@@ -60,6 +59,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared.Core\Shared.Core.csproj">
+      <Project>{9A417299-38CD-417D-81B1-35744436DAA0}</Project>
+      <Name>Shared.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Selenium.Chrome.WebDriver.2.43\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.43\build\Selenium.Chrome.WebDriver.targets')" />

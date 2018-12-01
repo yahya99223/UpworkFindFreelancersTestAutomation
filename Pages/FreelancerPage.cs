@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -21,12 +19,16 @@ namespace Pages
         private IWebElement titleHolder { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".o-tag-skill")]
         private IList<IWebElement> skillsTags { get; set; }
+
         public FreelancerPage()
         {
-            Thread.Sleep(10000);
+            Thread.Sleep(5000);
             PageFactory.InitElements(Driver.driver, this);
         }
-
+        /// <summary>
+        /// This method will read values of freelancer details from webpage to an object representing freelancer
+        /// </summary>
+        /// <returns></returns>
         public Freelancer FetchFreelancerInfo()
         {
             var freelancer = new Freelancer();

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium.Support.UI;
 
 namespace Pages
 {
@@ -21,17 +17,19 @@ namespace Pages
         private IWebElement searchButon { get; set; }
         public TopHeader()
         {
-            
             PageFactory.InitElements(Driver.driver, this);
-            searchTypeButton.Click();
-            selectSearch = Driver.driver.FindElements(By.CssSelector("#search-dropdown li"));
-            selectSearch.First(x=>x.Text=="Freelancers").Click();
         }
 
         public SearchResultsPage SearchForFreelancers(string searchText)
         {
+            //click on search type dropdown
             searchTypeButton.Click();
+            //click on Freelancers option
+            selectSearch = Driver.driver.FindElements(By.CssSelector("#search-dropdown li"));
+            selectSearch.First(x => x.Text == "Freelancers").Click();
+            //input the keyword in search field
             keyWordsTextbox.SendKeys(searchText);
+            //Click Search button
             searchButon.Click();
             return new SearchResultsPage();
         }

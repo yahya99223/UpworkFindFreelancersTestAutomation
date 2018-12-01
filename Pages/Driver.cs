@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using Shared.Core;
 
 namespace Pages
 {
@@ -11,26 +9,22 @@ namespace Pages
     {
         public static IWebDriver driver;
         
-        public static IWebDriver Factory(BroswerType type)
+        public static void Factory(BroswerType type)
         {
+            //setting driver for the selected browser
             if (type == BroswerType.Chrome)
             {
-                ChromeOptions options = new ChromeOptions();
-                options.AddArgument("--start-maximized");
                 if (driver == null)
-                    driver = new ChromeDriver("D:\\",options);
+                    driver = new ChromeDriver("D:\\");
             }
             else
             {
-                FirefoxOptions options = new FirefoxOptions();
-                options.AddArgument("--start-maximized");
                 if (driver == null)
-                    driver = new FirefoxDriver("D:\\",options);
+                    driver = new FirefoxDriver("D:\\");
             }
-
+            //clearing all cookies
             driver.Manage().Cookies.DeleteAllCookies();
-            return driver;
         }
     }
-    public enum BroswerType { Chrome, Firefox, Edge }
+   
 }

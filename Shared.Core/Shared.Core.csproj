@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5E086509-6A3F-454B-81FB-E7386E5A780B}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>TestScenarios</RootNamespace>
-    <AssemblyName>TestScenarios</AssemblyName>
+    <ProjectGuid>{9A417299-38CD-417D-81B1-35744436DAA0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Shared.Core</RootNamespace>
+    <AssemblyName>Shared.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,23 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FreelancersSearchTestScenario.cs" />
-    <Compile Include="Helpers\TestSettingsSetter.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="BrowserType.cs" />
+    <Compile Include="Freelancer.cs" />
+    <Compile Include="TestSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Pages\Pages.csproj">
-      <Project>{52382A94-11FA-44BA-977F-A12E9F024715}</Project>
-      <Name>Pages</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Shared.Core\Shared.Core.csproj">
-      <Project>{9A417299-38CD-417D-81B1-35744436DAA0}</Project>
-      <Name>Shared.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
