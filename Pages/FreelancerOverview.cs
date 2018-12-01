@@ -9,9 +9,9 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace Pages
 {
-    public class SearchResult
+    public class FreelancerOverview
     {
-        public SearchResult(IWebElement element)
+        public FreelancerOverview(IWebElement element)
         {
             PageFactory.InitElements(element, this);
         }
@@ -27,7 +27,7 @@ namespace Pages
             };
             try
             {
-                freelancer.Description = descriptionHolder?.GetAttribute("innerHTML");
+                freelancer.Description = descriptionHolder?.GetAttribute("textContent");
             }
             catch (Exception e)
             {

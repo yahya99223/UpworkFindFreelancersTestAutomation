@@ -21,19 +21,19 @@ namespace Pages
             PageFactory.InitElements(Driver.driver, this);
         }
 
-        public List<Freelancer> GetFreelancers()
+        public List<Freelancer> GetAllFreelancers()
         {
             if (freelancers.Count == 0)
                 foreach (var element in searchResElements)
                 {
-                    freelancers.Add(new SearchResult(element).GetFreelancerInfo());
+                    freelancers.Add(new FreelancerOverview(element).GetFreelancerInfo());
                 }
             return freelancers;
         }
 
         public FreelancerPage GetFreelancer(int index)
         {
-            var freelancer = new SearchResult(searchResElements[index - 1]).Explore();
+            var freelancer = new FreelancerOverview(searchResElements[index]).Explore();
             return freelancer;
         }
     }

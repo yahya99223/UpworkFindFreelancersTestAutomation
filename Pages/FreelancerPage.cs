@@ -11,15 +11,54 @@ namespace Pages
 {
     public class FreelancerPage
     {
+        [FindsBy(How = How.CssSelector, Using = "h2.m-xs-bottom > span:nth-child(1)")]
+        private IWebElement nameHolder { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".w-700")]
+        private IWebElement locationHolder { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "o-profile-overview.d-none > div:nth-child(1) > p:nth-child(1) > span:nth-child(1) > span:nth-child(1)")]
+        private IWebElement descriptionHolder { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".overlay-container > div:nth-child(1)")]
+        private IWebElement titleHolder { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".o-tag-skill")]
+        private IList<IWebElement> skillsTags { get; set; }
         public FreelancerPage()
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(10000);
             PageFactory.InitElements(Driver.driver, this);
-            Name = nameHolder.Text;
+        }
+
+        public Freelancer FetchFreelancerInfo()
+        {
+            var freelancer = new Freelancer();
             try
             {
+                freelancer.Name = nameHolder.Text;
+            }
+            catch (Exception e)
+            {
+                //could not fetch name
+            }
 
-                Description = descriptionHolder.Text;
+            try
+            {
+                freelancer.Title = titleHolder?.GetAttribute("textContent").Trim();
+            }
+            catch (Exception e)
+            {
+                //could not fetch title
+            }
+            try
+            {
+                freelancer.Skills = skillsTags.Select(x => x.Text).ToList();
+            }
+            catch (Exception e)
+            {
+                //could not fetch skills
+            }
+
+            try
+            {
+                freelancer.Description = descriptionHolder?.GetAttribute("textContent").Trim();
             }
             catch (Exception e)
             {
@@ -29,31 +68,15 @@ namespace Pages
             try
             {
 
-                Location = locationHolder.Text;
+                freelancer.Location = locationHolder.Text;
             }
             catch (Exception e)
             {
                 //freelancer did not add location
             }
-        }
-        public string Name { get; set; }
-        public string Location { get; set; }
-        public string Description { get; set; }
 
-        public bool ContainsKeyword(string keyword)
-        {
-            if ($"{Name} {Location} {Description}".IndexOf(keyword, 0, StringComparison.CurrentCultureIgnoreCase) != -1)
-            {
-                return true;
-            }
-            return false;
+            return freelancer;
         }
-        [FindsBy(How = How.CssSelector, Using = "h2.m-xs-bottom > span:nth-child(1)")]
-        private IWebElement nameHolder { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".w-700")]
-        private IWebElement locationHolder { get; set; }
-        [FindsBy(How = How.CssSelector, Using = " .overlay-container")]
-        private IWebElement descriptionHolder { get; set; }
 
     }
 }
