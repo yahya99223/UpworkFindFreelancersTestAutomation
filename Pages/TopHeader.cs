@@ -11,14 +11,30 @@ namespace Pages
 {
     class TopHeader
     {
+        [FindsBy(How = How.CssSelector, Using = "#layout > nav > div > div.navbar-collapse.d-none.d-lg-flex > div.navbar-form > form > div.input-group.input-group-search-dropdown.input-group-navbar > input.form-control")]
+        private IWebElement keyWordsTextbox { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "#search-dropdown li")]
+        private IList<IWebElement> selectSearch { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "div.d-lg-flex > div:nth-child(1) > form:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(2)")]
+        private IWebElement searchTypeButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "#layout > nav > div > div.navbar-collapse.d-none.d-lg-flex > div.navbar-form > form > div.input-group.input-group-search-dropdown.input-group-navbar > div > button.btn.p-0-left-right")]
+        private IWebElement searchButon { get; set; }
         public TopHeader()
         {
-           // var wait =new WebDriverWait(Driver.driver,new TimeSpan(0,0,10)).Until(ExpectedConditions.ElementToBeSelected(By.CssSelector("#layout > nav > div > div.navbar-collapse.d-none.d-lg-flex > div.navbar-form > form > div.input-group.input-group-search-dropdown.input-group-navbar > input.form-control")));
-            PageFactory.InitElements(Driver.driver,this);
+            
+            PageFactory.InitElements(Driver.driver, this);
+            searchTypeButton.Click();
+            selectSearch = Driver.driver.FindElements(By.CssSelector("#search-dropdown li"));
+            selectSearch.First(x=>x.Text=="Freelancers").Click();
         }
-        [FindsBy(How = How.CssSelector, Using = "#layout > nav > div > div.navbar-collapse.d-none.d-lg-flex > div.navbar-form > form > div.input-group.input-group-search-dropdown.input-group-navbar > input.form-control")]
-        public IWebElement KeyWordsTextbox { get; set; }
-        [FindsBy(How = How.CssSelector, Using = "#layout > nav > div > div.navbar-collapse.d-none.d-lg-flex > div.navbar-form > form > div.input-group.input-group-search-dropdown.input-group-navbar > div > button.btn.p-0-left-right")]
-        public IWebElement SearchButon { get; set; }
+
+        public SearchResultsPage SearchForFreelancers(string searchText)
+        {
+            searchTypeButton.Click();
+            keyWordsTextbox.SendKeys(searchText);
+            searchButon.Click();
+            return new SearchResultsPage();
+        }
+
     }
 }

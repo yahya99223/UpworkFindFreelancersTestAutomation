@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,18 @@ namespace Pages
 
         public MainPage()
         {
-            Driver.Factory(BroswerType.Firefox).Navigate().GoToUrl("https://www.upwork.com/"); ;
-            topHeader= new TopHeader();
+            Driver.Factory(BroswerType.Firefox);
+            goTo();
+            topHeader = new TopHeader();
+        }
+
+        private void goTo()
+        {
+            Driver.driver.Navigate().GoToUrl("https://www.upwork.com/");
         }
         public SearchResultsPage FindFreelancer(string searchText)
         {
-            topHeader.KeyWordsTextbox.SendKeys(searchText);
-            topHeader.SearchButon.Click();
-            return new SearchResultsPage();
+            return topHeader.SearchForFreelancers(searchText);
         }
     }
 }

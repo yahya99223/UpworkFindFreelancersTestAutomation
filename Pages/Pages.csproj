@@ -50,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Driver.cs" />
+    <Compile Include="Freelancer.cs" />
+    <Compile Include="FreelancerPage.cs" />
+    <Compile Include="SearchResult.cs" />
     <Compile Include="SearchResultsPage.cs" />
     <Compile Include="TopHeader.cs" />
     <Compile Include="MainPage.cs" />

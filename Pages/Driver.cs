@@ -15,16 +15,21 @@ namespace Pages
         {
             if (type == BroswerType.Chrome)
             {
+                ChromeOptions options = new ChromeOptions();
+                options.AddArgument("--start-maximized");
                 if (driver == null)
-                    driver = new ChromeDriver("D:\\");
-                return driver;
+                    driver = new ChromeDriver("D:\\",options);
             }
             else
             {
+                FirefoxOptions options = new FirefoxOptions();
+                options.AddArgument("--start-maximized");
                 if (driver == null)
-                    driver = new FirefoxDriver("D:\\");
-                return driver;
+                    driver = new FirefoxDriver("D:\\",options);
             }
+
+            driver.Manage().Cookies.DeleteAllCookies();
+            return driver;
         }
     }
     public enum BroswerType { Chrome, Firefox, Edge }

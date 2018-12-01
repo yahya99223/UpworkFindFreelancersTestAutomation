@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Upwork", "Upwork\Upwork.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pages", "Pages\Pages.csproj", "{52382A94-11FA-44BA-977F-A12E9F024715}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestScenarios", "TestScenarios\TestScenarios.csproj", "{5E086509-6A3F-454B-81FB-E7386E5A780B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{52382A94-11FA-44BA-977F-A12E9F024715}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52382A94-11FA-44BA-977F-A12E9F024715}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52382A94-11FA-44BA-977F-A12E9F024715}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E086509-6A3F-454B-81FB-E7386E5A780B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E086509-6A3F-454B-81FB-E7386E5A780B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E086509-6A3F-454B-81FB-E7386E5A780B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E086509-6A3F-454B-81FB-E7386E5A780B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
